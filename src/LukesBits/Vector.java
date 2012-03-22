@@ -22,6 +22,10 @@ public class Vector {
         z=_z;
     }
     
+    public boolean equals(Vector v){
+        return v!=null && v.x==x && v.y==y && v.z ==z;
+    }
+    
     public double get(int i){
         if(i==0){
             return x;
@@ -91,11 +95,11 @@ public class Vector {
     }
     
     public Vector add(Vector a){
-        return add(a,1);
+        return new Vector(x+a.x,y+a.y,z+a.z);
     }
     
     public Vector add(Vector a,double coef){ 
-        return new Vector(x+coef*a.getX(),y+coef*a.getY(),z+coef*a.getZ());
+        return new Vector(x+coef*a.x,y+coef*a.y,z+coef*a.z);
     }
     
     public Vector subtract(Vector a,double coef){
@@ -103,7 +107,7 @@ public class Vector {
     }
     
     public Vector subtract(Vector a){
-        return add(a,-1);
+        return new Vector(x-a.x,y-a.y,z-a.z);
     }
 
     public double dot(Vector a){
