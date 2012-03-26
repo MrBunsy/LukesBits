@@ -315,6 +315,6 @@ public class Vector {
     
     public String toString(){
         
-        return "("+getRoundedX()+","+getRoundedY()+","+getRoundedZ()+")";
+        return "("+Math.round(x*100.0)/100.0+","+Math.round(y*100.0)/100.0+","+Math.round(z*100.0)/100.0+")";
     }
 }
