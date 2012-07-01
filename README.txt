@@ -1,0 +1,1 @@
+This is a library of bits and peices I've used between several graphics projects.  See my website - http://www.lukewallin.co.uk/ - for more details.  It's not all particularily well written, but it works.  I'm licencing it under LGPL.  Contact me at luke.wallin@gmail.com if you have any questions.
