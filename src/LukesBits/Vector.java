@@ -2,13 +2,14 @@ package LukesBits;
 
 
 
+import java.io.Serializable;
 import java.util.Random;
 
 /**
  *
  * @author Luke
  */
-public class Vector {
+public class Vector  implements Serializable{
     
     public double x,y,z;
     
