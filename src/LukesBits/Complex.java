@@ -60,10 +60,10 @@ public class Complex {
     
     // return a new Complex object whose value is (this + b)
     public Complex plus(Complex b) {
-        Complex a = this;             // invoking object
-        double real = a.re + b.re;
-        double imag = a.im + b.im;
-        return new Complex(real, imag);
+        //Complex a = this;             // invoking object
+//        double real = a.re + b.re;
+//        double imag = a.im + b.im;
+        return new Complex(re + b.re, im + b.im);
     }
 
     // return a new Complex object whose value is (this - b)
@@ -76,10 +76,10 @@ public class Complex {
 
     // return a new Complex object whose value is (this * b)
     public Complex times(Complex b) {
-        Complex a = this;
-        double real = a.re * b.re - a.im * b.im;
-        double imag = a.re * b.im + a.im * b.re;
-        return new Complex(real, imag);
+        //Complex a = this;
+//        double real = a.re * b.re - a.im * b.im;
+//        double imag = a.re * b.im + a.im * b.re;
+        return new Complex(re * b.re - im * b.im, re * b.im + im * b.re);
     }
 
     // scalar multiplication

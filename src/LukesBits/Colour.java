@@ -9,9 +9,13 @@ import java.io.Serializable;
  */
 public class Colour implements Serializable {
 
-    public int r;
-    public int g;
-    public int b;
+    public static Colour red=new Colour(255,0,0);
+    public static Colour green=new Colour(0,255,0);
+    public static Colour blue=new Colour(0,0,255);
+    
+    public final int r;
+    public final int g;
+    public final int b;
 
     public Color toColor() {
         return new Color(r, g, b);
