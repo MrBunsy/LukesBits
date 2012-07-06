@@ -314,8 +314,15 @@ public class Vector  implements Serializable{
         return new Vector(x,y,z);
     }
     
+    @Override
     public String toString(){
-        
+        return toString(false);
+    }
+    
+    public String toString(boolean twoD){
+        if(twoD){
+            return "("+Math.round(x*100.0)/100.0+","+Math.round(y*100.0)/100.0+")";
+        }
         return "("+Math.round(x*100.0)/100.0+","+Math.round(y*100.0)/100.0+","+Math.round(z*100.0)/100.0+")";
     }
 }

@@ -42,6 +42,10 @@ public class Complex {
         im = imag;
     }
 
+    public Vector toVector(){
+        return new Vector(re,im);
+    }
+    
     // return a string representation of the invoking Complex object
     public String toString() {
         if (im == 0) return re + "";
@@ -65,6 +69,11 @@ public class Complex {
 //        double imag = a.im + b.im;
         return new Complex(re + b.re, im + b.im);
     }
+    
+//    //assume the double we're adding is real
+//    public Complex plus(double b){
+//        return new Complex(re + b, im);
+//    }
 
     // return a new Complex object whose value is (this - b)
     public Complex minus(Complex b) {
@@ -82,10 +91,31 @@ public class Complex {
         return new Complex(re * b.re - im * b.im, re * b.im + im * b.re);
     }
 
+    //de Moivre's formula
+    public Complex power(double n){
+        //if z = r(cos(theta) + isin(theta))
+        //then
+        //z^n = r^n(cos(ntheta) + isin(ntheta))
+        double r = abs();
+        double theta = phase();
+        
+        double ntheta=n*theta;
+        double x = Math.cos(ntheta);
+        double y = Math.sin(ntheta);
+        
+        double rn = Math.pow(r,n);
+        
+        return new Complex(rn*x, rn*y);
+    }
+    
     // scalar multiplication
     // return a new object whose value is (this * alpha)
     public Complex times(double alpha) {
         return new Complex(alpha * re, alpha * im);
+    }
+    
+    public Complex square(){
+        return new Complex(re*re - im*im, 2*re*re);
     }
 
     // return a new Complex object whose value is the conjugate of this
@@ -136,5 +166,10 @@ public class Complex {
         Complex sum = new Complex(real, imag);
         return sum;
     }
+    
+    
+    
+    
+    
 
 }
