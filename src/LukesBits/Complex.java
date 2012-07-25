@@ -41,7 +41,13 @@ public class Complex {
         re = real;
         im = imag;
     }
-
+    
+    //create a complex using a vector
+    public Complex(Vector v){
+        re=v.x;
+        im=v.y;
+    }
+    
     public Vector toVector(){
         return new Vector(re,im);
     }
