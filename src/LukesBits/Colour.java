@@ -26,7 +26,10 @@ public class Colour implements Serializable {
         g = _g < 0 ? 0 : (_g > 255 ? 255 : _g);
         b = _b < 0 ? 0 : (_b > 255 ? 255 : _b);
     }
-
+    
+    public Colour(double _r, double _g, double _b){
+        this((int)Math.round(_r),(int)Math.round(_g),(int)Math.round(_b));
+    }
     //dim:0-1
     public Colour dim(double dim) {
         //int test = tidy( (int)Math.round((double)r*dim) );

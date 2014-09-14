@@ -209,6 +209,49 @@ public class Vector  implements Serializable{
         return new Vector(ans.get(0, 0),ans.get(1, 0),ans.get(2, 0));
     }
     
+    public Vector randomThisDirection(){
+        return randomThisDirection(Math.PI/2, new Random());
+    }
+    
+    /**
+     * Generate and return a random vector in the direction of this vector
+     * @param maxAngle Maximum angle away from the direction of this vector (0-pi/2)
+     * @param random random function to use
+     * @return 
+     */
+    public Vector randomThisDirection(double maxAngle,Random random){
+        //taken from my photonmap code
+        //x and y where this vector is normal to them both
+        Vector xDir=predictableNormal();
+        Vector yDir=cross(xDir).getUnit();
+        
+        //trig  the minimum component in the direction of this vector which is required 
+        //to fuflil the max angle away from this vector
+        
+        double minAngle = Math.PI/2-maxAngle;
+        
+        
+        double minZ=Math.tan(minAngle);
+        
+        //keep in range 0-1
+        minZ = Math.min(1-Double.MIN_VALUE, minZ);
+        minZ = Math.max(0, minZ);
+        
+        double zRange=1.0-minZ;
+        
+        
+        double z=minZ+random.nextDouble()*zRange;
+            
+        double theta = random.nextDouble()*Math.PI*2;
+
+        double _x = Math.sqrt(1-z*z)*Math.cos(theta);
+        double _y = Math.sqrt(1-z*z)*Math.sin(theta);
+
+        Vector direction = multiply(z).add(xDir,_x).add(yDir,_y);
+        
+        return direction.getUnit();
+    }
+    
     public Vector randomNormal(Random r){// throws Exception{
         double Nx,Ny,Nz;
         
